@@ -10,6 +10,6 @@ public class HouseController {
 	
 	@Autowired
 	HouseRepository repository;
-	@PostMapping("api/house")
-	public House createResults(@RequestBody )
+//	@PostMapping("api/house")
+//	public House createResults(@RequestBody )
 }
