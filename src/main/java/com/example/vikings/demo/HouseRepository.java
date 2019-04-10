@@ -17,4 +17,7 @@ public interface HouseRepository extends JpaRepository<House, Integer> {
 	
 	@Query("SELECT h FROM House h WHERE h.size = ?1 or h.size > ?1")
 	List<House> findBySizeHigher(Integer size);
+	
+	@Query("SELECT h FROM House h WHERE (h.price = ?1 or h.price < ?1) and (h.size = ?2 or h.size < ?2)")//up to size
+	List<House> findByFilters(Integer price, Integer size);
 }

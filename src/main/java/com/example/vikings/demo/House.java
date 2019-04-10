@@ -14,26 +14,24 @@ public class House {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	private int price;
-	private int size;
+	private int price, size, status;
+	private String contact, location;
 	
 	public House() {
 		
 	}
-
-	public House(int id, int price, int size) {
+	
+	public House(int price, int size, int status, String contact, String location) {
 		super();
-		this.id = id;
 		this.price = price;
 		this.size = size;
+		this.status = status;
+		this.contact = contact;
+		this.location = location;
 	}
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public int getPrice() {
@@ -52,9 +50,34 @@ public class House {
 		this.size = size;
 	}
 
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	@Override
 	public String toString() {
-		return "House [id=" + id + ", price=" + price + ", size=" + size + "]";
+		return "House [id=" + id + ", price=" + price + ", size=" + size + ", status=" + status + ", contact=" + contact
+				+ ", location=" + location + "]";
 	}
 
 }

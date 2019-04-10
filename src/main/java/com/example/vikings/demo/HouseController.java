@@ -44,4 +44,13 @@ public class HouseController {
         int s = Integer.parseInt(fromSize);
         return houseRepository.findBySizeHigher(s);
     }
+    
+    @GetMapping("/house/results")
+    public List<House> showResults(@RequestParam(value = "toPrice", defaultValue = "1000000") String toPrice,
+    		@RequestParam(value = "toSize", defaultValue = "1000") String toSize){
+    	
+    	int p = Integer.parseInt(toPrice);
+    	int s = Integer.parseInt(toSize);
+        return houseRepository.findByFilters(p, s);
+    }
 }
