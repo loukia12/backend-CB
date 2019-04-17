@@ -14,14 +14,14 @@ public class House {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	private int price, size, status;
-	private String contact, location;
+	private int price, size;
+	private String contact, location, status;
 	
 	public House() {
 		
 	}
 	
-	public House(int price, int size, int status, String contact, String location) {
+	public House(int price, int size, String status, String contact, String location) {
 		super();
 		this.price = price;
 		this.size = size;
@@ -50,11 +50,11 @@ public class House {
 		this.size = size;
 	}
 
-	public int getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
