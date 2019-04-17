@@ -9,15 +9,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface HouseRepository extends JpaRepository<House, Integer> {
 
-	@Query("SELECT h FROM House h WHERE h.price = ?1 or h.price < ?1")
-    List<House> findByPrice(Integer price);
+	@Query("SELECT h FROM House h WHERE (h.price = ?1 or h.price < ?1) and (h.size = ?2 or h.size > ?2) and (h.status = ?3) ORDER BY h.price ASC")
+	List<House> findByFilters(Integer price, Integer size, String status);
 	
-	@Query("SELECT h FROM House h WHERE h.size = ?1 or h.size < ?1")
-	List<House> findBySizeLower(Integer size);
-	
-	@Query("SELECT h FROM House h WHERE h.size = ?1 or h.size > ?1")
-	List<House> findBySizeHigher(Integer size);
-	
-	@Query("SELECT h FROM House h WHERE (h.price = ?1 or h.price < ?1) and (h.size = ?2 or h.size < ?2)")//up to size
-	List<House> findByFilters(Integer price, Integer size);
+	@Query("SELECT h FROM House h WHERE (h.price = ?1 or h.price < ?1) and (h.size = ?2 or h.size > ?2) and (h.location = ?3) and (h.status = ?4) ORDER BY h.price ASC")
+	List<House> findByFilters2(Integer price, Integer size, String location, String status);
 }
