@@ -31,7 +31,7 @@ public class HouseController {
     //@CrossOrigin("http://localhost:3000/results")
     @GetMapping("/house/results")
     public List<House> showNewResults(@RequestParam(value = "toPrice", defaultValue = "1000") String toPrice,
-    		@RequestParam(value = "fromSize", defaultValue = "0") String fromSize, @RequestParam(value = "location") String location, 
+    		@RequestParam(value = "fromSize", defaultValue = "0") String fromSize, @RequestParam(value = "location", defaultValue = "") String location, 
     		@RequestParam(value = "status", defaultValue = "Rent") String status){
     	
     	int p = Integer.parseInt(toPrice);
