@@ -32,15 +32,24 @@ public class HouseController {
     @GetMapping("/house/results")
     public List<House> showNewResults(@RequestParam(value = "toPrice", defaultValue = "1000") String toPrice,
     		@RequestParam(value = "fromSize", defaultValue = "0") String fromSize, @RequestParam(value = "location", defaultValue = "") String location, 
-    		@RequestParam(value = "status", defaultValue = "Rent") String status){
+    		@RequestParam(value = "status", defaultValue = "Buy") String status){
     	
     	int p = Integer.parseInt(toPrice);
     	int s = Integer.parseInt(fromSize);
     	
+    	System.out.println(status);
+    	System.out.println(location);
+    	System.out.println(toPrice);
+    	System.out.println(fromSize);
+    	
     	if(location.equals("")) {
+    		System.out.println("empty location" + status);
     		return houseRepository.findByFilters(p, s, status);
+    		//return houseRepository.test(status, s );
     	}else {
-    		return houseRepository.findByFilters2(p, s, location, status);
+    		System.out.println("location" + status);
+    		//return houseRepository.findByFilters2(p, s, location, status);
+    		return houseRepository.test(p, s, location);
     	}
 
     }
