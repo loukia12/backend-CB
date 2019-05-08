@@ -18,10 +18,6 @@ public class HouseController {
 	@Autowired
 	HouseRepository houseRepository;
 	
-//	@RequestMapping(value = "/test")
-//	public String index2() {
-//		return "index";
-//	}
 	
     @GetMapping("/house")
     public List<House> index(){
@@ -30,7 +26,7 @@ public class HouseController {
     
     //@CrossOrigin("http://localhost:3000/results")
     @GetMapping("/house/results")
-    public List<House> showNewResults(@RequestParam(value = "toPrice", defaultValue = "1000") String toPrice,
+    public List<House> showNewResults(@RequestParam(value = "toPrice", defaultValue = "100000") String toPrice,
     		@RequestParam(value = "fromSize", defaultValue = "0") String fromSize, @RequestParam(value = "location", defaultValue = "") String location, 
     		@RequestParam(value = "status", defaultValue = "Buy") String status){
     	
@@ -45,12 +41,9 @@ public class HouseController {
     	if(location.equals("")) {
     		System.out.println("empty location" + status);
     		return houseRepository.findByFilters(p, s, status);
-    		//return houseRepository.test(status, s );
     	}else {
     		System.out.println("location" + status);
-    		//return houseRepository.findByFilters2(p, s, location, status);
-    		return houseRepository.test(p, s, location);
+    		return houseRepository.findByFilters2(p, s, location, status);
     	}
-
     }
 }
