@@ -1,7 +1,5 @@
 package com.example.vikings.demo;
 
-import java.util.Arrays;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,13 +21,14 @@ public class House {
 		
 	}
 	
-	public House(int price, int size, String status, String contact, String location) {
+	public House(int price, int size, String status, String contact, String location, String image) {
 		super();
 		this.price = price;
 		this.size = size;
 		this.status = status;
 		this.contact = contact;
 		this.location = location;
+		this.image = image;
 	}
 
 	public int getId() {
@@ -76,14 +75,12 @@ public class House {
 		this.location = location;
 	}
 
-
-
 	public String getImage() {
 		return image;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setImage(String imageURL) {
+		this.image = imageURL;
 	}
 
 	@Override
